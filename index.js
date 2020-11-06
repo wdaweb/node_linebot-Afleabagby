@@ -199,25 +199,19 @@ bot.on('message', async event => {
     const txt = event.message.text
     // 機器人回覆
     let reply = ''
-    // if (txt === 'flex') {
-    //   for (const data of MovieData.results) {
-    //     if (data.title === txt) {
-    //       reply = data.overview
-    //       break
-    //     }
-    //   }
-    // } else
-    // if (txt === '隨機') {
+    if (txt === '隨機') {
     //   // 使用者輸入隨機，隨選三部片給他
     //   // getRandomMovie(LatestID)
-    // } else {
-    const str = txt
-    reply = await getMovieData(str.replace('+', ''))
-    event.reply(reply)
-    console.log(reply)
+    } else {
+      const str = txt
+      reply = await getMovieData(str.replace('+', ''))
+      event.reply(reply)
+      console.log(reply)
+      console.log(reply)
     // fs.writeFile('./test.json', JSON.stringify(reply), () => {})
-    // }
+    }
   } catch (error) {
+    console.log(error)
     console.log(error)
     event.reply('查詢失敗，請稍後再試')
   }
